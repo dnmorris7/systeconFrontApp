@@ -1,0 +1,69 @@
+<h1>View 2 - Sorted Table Boogaloo</h1><br>
+
+<input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" /><br>
+
+
+
+
+<table class="minimalistBlack" matSort (matSortChange)="sortData($event)" *ngIf="records.length > 0">
+
+  <thead>
+    <tr>
+
+      <th mat-sort-header="model">Model </th>
+      <th mat-sort-header="point">Point </th>
+      <th mat-sort-header="iid">IID </th>
+      <th mat-sort-header="stid">STID </th>
+      <th mat-sort-header="ststiz">STSTIZ </th>
+      <th mat-sort-header="rosiz">ROSIZ </th>
+      <th mat-sort-header="nbo">NBO</th>
+      <th mat-sort-header="dpy">DPY</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let record of sortedData; let i = index;">
+      <td> <span>{{record.model}}</span> </td>
+      <td> <span>{{record.point}}</span> </td>
+      <td> <span>{{record.iid}}</span> </td>
+      <td> <span>{{record.stid}}</span> </td>
+      <td> <span>{{record.ststiz}}</span> </td>
+      <td> <span>{{record.rosiz}}</span> </td>
+      <td> <span>{{record.nbo}}</span> </td>
+      <td> <span>{{record.dpy}}</span> </td>
+    </tr>
+  </tbody>
+</table>  
+
+
+
+
+
+ <!-- No Sort Function...Faster for some reason -->
+<!-- <table class="minimalistBlack" *ngIf="records.length > 0">
+  <thead>
+    <tr>
+
+      <th>Model </th>
+      <th>Point </th>
+      <th>IID </th>
+      <th>STID </th>
+      <th>STSTIZ </th>
+      <th>ROSIZ </th>
+      <th>NBO</th>
+      <th>DPY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of records;let i = index;">
+      <td> <span>{{record.model}}</span> </td>
+      <td> <span>{{record.point}}</span> </td>
+      <td> <span>{{record.iid}}</span> </td>
+      <td> <span>{{record.stid}}</span> </td>
+      <td> <span>{{record.ststiz}}</span> </td>
+      <td> <span>{{record.rosiz}}</span> </td>
+      <td> <span>{{record.nbo}}</span> </td>
+      <td> <span>{{record.dpy}}</span> </td>
+    </tr>
+  </tbody> 
+</table> -->

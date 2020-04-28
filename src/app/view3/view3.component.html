@@ -1,0 +1,94 @@
+<h1>View 3 - Editable Table </h1><br>
+ <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" /> 
+<table mat-table [dataSource]="dataSource" class="minimalistBlack" (keyup)="onKeyUp($event)">
+
+
+
+  <!-- IID Column -->
+  <ng-container matColumnDef="iid">
+    <th mat-header-cell *matHeaderCellDef> IID </th>
+    <td mat-cell (mousedown)="onMouseDown(i, 0, 'iid')" (mouseup)="onMouseUp(i, 0, 'iid')" *matCellDef="let element; let i = index"
+        [ngClass]="{'selected': selectedCellsState[i][0], 'unselected': !selectedCellsState[i][0]}">
+      {{element.iid}}
+    </td>
+  </ng-container>
+
+  <!-- DESCR Column -->
+  <ng-container matColumnDef="descr">
+    <th mat-header-cell *matHeaderCellDef> DESCRIPTION </th>
+    <td mat-cell (mousedown)="onMouseDown(i, 1, 'descr')" (mouseup)="onMouseUp(i, 1, 'descr')" *matCellDef="let element; let i = index"
+        [ngClass]="{'selected': selectedCellsState[i][1], 'unselected': !selectedCellsState[i][1]}">{{element.descr}} </td>
+  </ng-container>
+
+  <!-- PRICE Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef> PRICE </th>
+    <td mat-cell (mousedown)="onMouseDown(i, 2, 'price')" (mouseup)="onMouseUp(i, 2, 'price')" *matCellDef="let element; let i = index"
+    [ngClass]="{'selected': selectedCellsState[i][2], 'unselected': !selectedCellsState[i][2]}"> {{element.price}} </td>
+  </ng-container>
+
+  <!-- FAILURE RATE Column -->
+  <ng-container matColumnDef="frt">
+    <th mat-header-cell *matHeaderCellDef> FRT </th>
+    <td mat-cell (mousedown)="onMouseDown(i, 3, 'frt')" (mouseup)="onMouseUp(i, 3, 'frt')" *matCellDef="let element; let i = index"
+    [ngClass]="{'selected': selectedCellsState[i][1], 'unselected': !selectedCellsState[i][1]}"> {{element.frt}} </td>
+  </ng-container>
+
+  <!-- OPERATIONS PER IDENTIFIER Column -->
+  <ng-container matColumnDef="opid">
+    <th mat-header-cell *matHeaderCellDef> OPID </th>
+    <td mat-cell (mousedown)="onMouseDown(i, 4, 'opid')" (mouseup)="onMouseUp(i, 4, 'opid')" *matCellDef="let element; let i = index"
+    [ngClass]="{'selected': selectedCellsState[i][1], 'unselected': !selectedCellsState[i][1]}"> {{element.opid}} </td>
+  </ng-container>
+
+ <!-- TYPE Column -->
+ <ng-container matColumnDef="type">
+  <th mat-header-cell *matHeaderCellDef> TYPE </th>
+  <td mat-cell (mousedown)="onMouseDown(i, 5, 'type')" (mouseup)="onMouseUp(i, 5, 'type')" *matCellDef="let element; let i = index"
+  [ngClass]="{'selected': selectedCellsState[i][5], 'unselected': !selectedCellsState[i][5]}"> {{element.type}} </td>
+</ng-container>
+
+
+ <!-- GROUP OF ITEMS Column -->
+ <ng-container matColumnDef="giid">
+  <th mat-header-cell *matHeaderCellDef> GIID </th>
+  <td mat-cell (mousedown)="onMouseDown(i, 6, 'giid')" (mouseup)="onMouseUp(i, 6, 'giid')" *matCellDef="let element; let i = index"
+  [ngClass]="{'selected': selectedCellsState[i][6], 'unselected': !selectedCellsState[i][6]}"> {{element.giid}} </td>
+</ng-container>
+
+<!-- NOTE Column -->
+<ng-container matColumnDef="note">
+ <th mat-header-cell *matHeaderCellDef> NOTE </th>
+ <td mat-cell (mousedown)="onMouseDown(i, 7, 'note')" (mouseup)="onMouseUp(i, 7, 'note')" *matCellDef="let element; let i = index"
+ [ngClass]="{'selected': selectedCellsState[i][7], 'unselected': !selectedCellsState[i][7]}"> {{element.note}} </td>
+</ng-container>
+
+ 
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<ng-container matColumnDef="iid">
+  <th mat-header-cell *matHeaderCellDef> Name </th>
+  <td mat-cell (mousedown)="onMouseDown(i, 1, 'iid')" (mouseup)="onMouseUp(i, 1, 'iid')" *matCellDef="let element; let i = index"
+      [ngClass]="{'selected': selectedCellsState[i][1], 'unselected': !selectedCellsState[i][1]}">
+    {{element.iid}}
+  </td>
+</ng-container>
+
+
+
+
+<!-- <div>
+    <div *ngIf="editing">
+      <input [required]="required" (blur)="onBlur($event)" [name]="value"  [placeholder]="label" />
+
+    </div>
+    <div *ngIf="!editing">
+      <a href="#" (click)="beginEdit(value)" (focus)="beginEdit(value)" tabindex="0">{{value}}</a>
+    </div>
+  </div> -->
+
+  
