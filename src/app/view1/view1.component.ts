@@ -66,6 +66,7 @@ export class View1Component implements OnInit {
           type: 'line',
           data: {
             yAxes: 'Availiability',
+            xAxes: "Life Cycle Cost",
             labels: ['0', '5,000,000', '10,000,000', '15,000,000', '20,000,000', '25,000,000'],
             datasets: [{
 
